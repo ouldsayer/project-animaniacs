@@ -128,6 +128,7 @@ INSTALLED_APPS = (
     'mitsuisushibar.items',
     'mitsuisushibar.measures',
     'mitsuisushibar.users',
+    'mitsuisushibar',
 )
 
 # A sample logging configuration. The only tangible logging

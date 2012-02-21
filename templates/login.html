@@ -1,27 +1,37 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset=utf-8>
-<title>Artanit - Login</title>
-<link href="{{ MEDIA_URL }}main.css" media="screen" rel="stylesheet"
-	type="text/css" />
+<title>Artanit</title>
+<link href="main.css" media="screen" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<form action="/login/{{ user.username }}/{{ user.password }}"
-		method="POST">
-		{% csrf_token %} <input name="id" type="hidden"
-			value="{{ category.id }}" />
-		<div class="field">
-			<label>Login:</label> <input name="username" type="text"
-				class="defaultInput minWidth300px" value="{{ user.username }}" />
+	<header id="topBar" class="bodyMargin">
+		<nav id="groups">
+			<a>Artanit</a>
+		</nav>
+	</header>
+	<section id="groupContent" class="bodyLeftMargin">
+		<div id="loginContainer"
+			style="boder: 1px solid black; text-align: center; margin-top: 200px">
+			<form action="/login/" method="POST">
+			{% csrf_token %}
+				<div class="field">
+					<label>Login</label> <input type="text" value="{{ username }}"
+						name="username" class="defaultInput" />
+				</div>
+				<div class="field" style="display: block;">
+					<label>Senha</label> <input type="password" value="{{ password }}"
+						name="password" class="defaultInput" />
+				</div>
+				<div class="field" style="display: block;">
+					<button type="submit" class="newButton">Entrar</button>
+				</div>
+			</form>
+			{% if form.errors %}
+			<p>Your username and password didn't match. Please try again.</p>
+			{% endif %}
 		</div>
-		<div class="field">
-			<label>Password:</label> <input name="password" type="password"
-				class="defaultInput minWidth300px" value="{{ user.password }}" />
-		</div>
-		<div id="buttonsItemToolBar">
-			<button type="submit" class="newButton">Logar</button>
-		</div>
-	</form>
+	</section>
 </body>
 </html>

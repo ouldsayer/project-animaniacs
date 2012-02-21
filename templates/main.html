@@ -8,13 +8,15 @@
 <body>
 	<header id="topBar" class="bodyMargin">
 		<nav id="groups">
-			<a href="{% url mitsuisushibar.items.views.index %}" class="simpleLink">Produtos</a>
+			<a href="/itens" class="simpleLink">Produtos</a>
 			<span class="leftRight3px">|</span>
 			<a href="#" class="simpleLink">Exercícios</a>
 			<span class="leftRight3px">|</span>
 			<a href="/usuarios" class="simpleLink">Usuários</a>
 			<span class="leftRight3px">|</span>
-			<a href="#" class="simpleLink">Luigi Tricoli</a>
+			<a href="#" class="simpleLink">{{ user.username }}</a>
+			<span class="leftRight3px">|</span>
+			<a href="/logout" class="simpleLink">Logout</a>
 		</nav>
 	</header>
 	<section id="groupContent" class="bodyLeftMargin">

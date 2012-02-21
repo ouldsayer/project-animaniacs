@@ -1,3 +1,4 @@
+# encoding: utf-8
 from django.conf.urls.defaults import patterns, include, url
 from django.conf import settings
 
@@ -19,9 +20,12 @@ urlpatterns = patterns('',
     (r'^media/(.*)$', 'django.views.static.serve',
         {'document_root': settings.MEDIA_ROOT}),
     
-    #(r'^login/(?P<username>)/(?P<username>)/$', 'mitsuisushibar.categories.views.delete')
+    (r'^login/$', 'mitsuisushibar.views.login'),
+    (r'^accounts/login/$', 'mitsuisushibar.views.index'),
+    (r'^logout/$', 'mitsuisushibar.views.logout'),
+    
     (r'^itens/$', 'mitsuisushibar.items.views.index'),
-    (r'^$', 'mitsuisushibar.views.login'),
+    (r'^$', 'mitsuisushibar.views.main'),
     (r'^categorias/$', 'mitsuisushibar.categories.views.index'),
     (r'^categoria/editar/(?P<category_id>\d+)/$', 'mitsuisushibar.categories.views.edit'),
     (r'^categoria/salvar/(?P<category_id>\d+)/$', 'mitsuisushibar.categories.views.save'),
@@ -34,6 +38,9 @@ urlpatterns = patterns('',
     (r'^medidas/$', 'mitsuisushibar.measures.views.index'),
     
     (r'^usuarios/$', 'mitsuisushibar.users.views.index'),
+    (r'^usuario/editar/(?P<user_id>\d+)/$', 'mitsuisushibar.users.views.edit'),
+    (r'^usuario/salvar/(?P<user_id>\d+)/$', 'mitsuisushibar.users.views.save'),
+    (r'^usuario/deletar/(?P<user_id>\d+)/$', 'mitsuisushibar.users.views.delete'),
 
     
 )

@@ -2,15 +2,19 @@ from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 
 from models import Item, ItemForm
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def index(request):
     items = Item.objects.all().order_by('name')
     return render_to_response('itens.html', locals(), context_instance=RequestContext(request))
-    
+
+@login_required    
 def edit(request, item_id):
     items = Item.objects.get(id=item_id)
     return render_to_response('item_form.html', locals(), context_instance=RequestContext(request))
 
+@login_required
 def save(request, category_id):
     if request.method == 'POST':
         item = Item.objects.get(id=category_id)
@@ -24,7 +28,8 @@ def save(request, category_id):
         else:
             return render_to_response('item_form.html', locals(), context_instance=RequestContext(request))
 
-# path /categoria/deletar/category_id  
+# path /categoria/deletar/category_id
+@login_required
 def delete(request, item_id):
     item = Item.objects.get(id=item_id)
     item.delete()
