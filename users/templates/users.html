@@ -1,0 +1,26 @@
+{% extends "main.html" %}
+
+{% block h2 %}Usuarios{% endblock %}
+
+
+{% block content %}
+    {% for user in users %}
+        <article class="item editableItem">
+	        <a href="/usuario/editar/{{ user.id }}" class="simpleLink"><h3 class="titleItem">{{ user.username }}</h3></a>
+	        <span class="editButton hidden">Editar</span>
+	        <a href="/usuario/deletar/{{ user.id }}" class="deleteButton itemRightButton">Deletar</a>
+	        <p class="descriptionItem">
+		        {{ user.email }}
+	        </p>
+        </article>    
+    {% endfor %}
+{% endblock %}
+
+    <article class="item editableItem">
+	    <a href="#" class="simpleLink"><h3 class="titleItem">Carlos Anibal Vieira Araújo Junior</h3></a>
+	    <span class="editButton hidden">Editar</span>
+	    <a href="#" class="deleteButton itemRightButton">Deletar</a>
+	    <p class="descriptionItem">
+		    235  |  (34) 3456-0987  |  Av. Cesário Alvim, 3521  |  Brasil
+	    </p>
+    </article>

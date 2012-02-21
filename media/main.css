@@ -1,0 +1,312 @@
+﻿* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	font: 12px 'Trebuchet MS', Arial, sans-serif;
+	color: #303030;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-weight: normal;
+}
+
+a,img,a img,form,fieldset,table {
+	border: none;
+}
+
+table {
+	border-spacing: 0;
+}
+
+th,td {
+	text-align: left;
+	vertical-align: middle;
+}
+
+ul,ol {
+	list-style: none;
+}
+
+body {
+	min-width: 1008px;
+}
+
+#topBar{
+	background: #000;
+}
+
+#groups {
+	text-align: right;
+	padding: 5px 0;
+}
+
+#groups *{
+	color: #FFF;
+	font-weight: bold;
+	font-size: 14px;
+}
+	
+#groupContent{}
+
+#areaDetail {
+	min-height: 500px;
+	margin-left: 210px;
+}
+
+#areas {
+	width: 200px;
+	margin-right: 10px;
+	float: left;
+}
+
+#areas * {
+	font-size: 14px;
+}
+
+#areas .selected {
+	color: #d41c1c;
+	font-weight: bold;
+}
+
+#areaToolBar{
+	background: #eeeded;
+	padding: 15px 10px;
+}
+
+#areaToolBar .title {
+	font-weight: bold;
+	font-size: 19px;
+	display: inline;
+	margin-right: 15px;
+}
+
+#formFilterAreaToolBar {
+	display: inline-block;
+}
+
+#buttonsAreaToolBar {
+	display: inline-block;
+	float: right;
+	margin-top: 6px;
+}
+
+#areaContentToolBar{
+	height: 30px;
+	margin: 18px 10px 0;
+}
+
+#areaContentToolBar * {
+	float: right;
+}
+
+#areaContent{
+}
+
+#itemToolBar {
+	background: #eeeded;
+	padding: 0 10px;
+}
+
+#formError {
+	background: #fffaf0;
+	padding: 10px;
+	margin-top: 10px;
+	border: red 1px solid;
+}
+
+#formError * {
+    color: red;
+}
+
+#itemSubareas {
+	display: inline-block;
+}
+
+#itemSubareas * {
+	font-weight: bold;
+	font-size: 14px;
+	margin-right: 3px;
+	padding: 7px 10px 10px;
+	display:block;
+	float: left;
+	border-top: 4px #eeeded solid;
+}
+
+#itemSubareas .selected {
+	border-top: 4px #d41c1c solid;
+}
+
+#buttonsItemToolBar {
+	display: inline-block;
+	float: right;
+	margin: 13px 0;
+}
+
+.searchButton{
+	background: url(searchButton.png) -2px -3px;
+	height: 26px;
+	width: 42px;
+	font-weight: bold;
+	border: 1px solid #303030;
+	overflow: hidden;
+	text-indent: -9000px;
+}
+
+.searchButton:hover{
+	background: url(searchButton.png) -2px -31px;
+}
+
+.newButton {
+    cursor: pointer;
+	background: url(blueSmallButton.png) -3px -3px;
+	padding: 3px 23px;
+	color: #FFF;
+	font-weight: bold;
+	border: 1px solid #303030;
+	font-size: 14px;
+}
+
+.newButton:hover{
+	background: url(blueSmallButton.png) -3px -30px;
+}
+
+.leftRight3px{
+	margin: 0 3px;
+}
+
+.bodyMargin{
+	padding: 0 10px;
+}
+
+.bodyRightMargin{
+	padding-right: 10px;
+}
+
+.bodyLeftMargin{
+	padding-Left: 10px;
+}
+
+.topBottom15px{
+	margin: 15px 0;
+}
+
+.width50percent{
+	width: 50%;
+}
+
+.minWidth300px{
+	min-width: 300px;
+}
+
+.simpleLink:hover{
+	text-decoration: underline;
+}
+
+.defaultInput {
+	background: #FFF;
+	border: 1px solid #303030;
+	padding: 3px 7px;
+}
+
+.item{
+	padding: 18px 10px;
+	border-bottom: #595959 solid 1px;
+}
+
+.titleItem{
+	font-weight: bold;
+	font-size: 18px;
+	display: inline;
+}
+
+.descriptionItem{
+	color: #a0a0a0;
+}
+
+.editButton{
+	background: url(editable_20_20.png);
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	overflow: hidden;
+	text-indent: -9000px;	
+}
+
+.deleteButton{
+	background: url(trash_30_30.png);
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	overflow: hidden;
+	text-indent: -9000px;
+}
+
+.itemRightButton{
+	float: right;
+	margin-top: 6px;
+}
+
+.hidden{
+	display: none;
+}
+
+.editableItem .editButton {
+	display: inline-block;
+}
+
+.orderButton {
+	background: #eeeded;
+	padding: 3px 10px;
+	border: 1px solid #303030;
+	font-size: 14px;
+}
+
+.orderButton * {
+	color: #000;
+	font-weight: bold;
+}
+
+.orderButton img{
+	display: block;
+	margin: 5px 0 0 7px;
+}
+
+.itemInformation {
+	border: none;
+}
+
+.field {
+	margin: 15px 10px 0 0;
+	display: inline-block;
+}
+
+.field label {
+	display: block;
+	font-weight: bold;
+}
+
+.listField {
+	margin: 15px 10px 0 0;
+}
+
+.listField li {
+	padding: 15px 0;
+	border-bottom: #595959 solid 1px;
+}
+
+.listField li.finalLine {
+	border-bottom: none;
+	padding-bottom: 25px;
+}
+
+.listFieldLable {
+	display: block;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.removeLine{
+	display: block;
+	margin: 3px 20px 0 0;
+	float: left;
+}

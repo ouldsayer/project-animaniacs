@@ -1,0 +1,53 @@
+{% extends "main.html" %}
+
+{% block title %}Itens{% endblock %}
+
+{% block content %}
+    <article class="item itemInformation">
+	    <span class="simpleLink"><h3 class="titleItem">Carlos Anibal Vieira Araújo Junior</h3></span>
+        <a href="/item/deletar/{{ item.id }}" class="deleteButton itemRightButton">Deletar</a>
+        <p class="descriptionItem">
+	        {{ item.code }}
+        </p>
+    </article>
+	<form action="/item/salvar/{{ item.id }}/" method="POST">
+	    {% csrf_token %}
+		<div id="itemToolBar">
+			<nav id="itemSubareas">
+				<span class="selected">Dados</span>
+			</nav>
+			<div id="buttonsItemToolBar">
+				<button type="submit" class="newButton">Salvar</button>
+			</div>				
+		</div>
+        {% if form.errors %}
+        <div id="formError">
+	        <h4>Foram encontrados os seguintes erros:</h4>
+	        <ul>
+	        {% for field in form %}
+	            {% if field.errors %}
+    	            <li>{{ field.label }}: {{ field.errors|striptags }}</li>
+    	        {% endif %}
+	        {% endfor %}
+	        </ul>
+        </div>
+        {% endif %}    			
+		<input name="id" type="hidden" value="{{ item.id }}" />
+		<div class="field">
+			<label>Código:</label>			<input name="code" type="text" class="defaultInput" value="{{ item.code }}" />
+		</div>
+		<div class="field">				
+			<label>Nome:</label>			<input name="name" type="text" class="defaultInput minWidth300px" value="{{ item.name }}" />
+		</div>
+		<div class="field">				
+			<label>Tipo de Produto:</label>
+			<input name="typeItem" type="text" class="defaultInput minWidth300px" value="{{ item.typeItem }}" />
+		</div>
+		<div class="field">				
+			<label>Unidade de Medida:</label>
+			<input name="measureUnit" type="text" class="defaultInput" value="{{ item.measureUnit }}" />
+		</div>				
+	</form>    
+{% endblock %}    
+    
+               

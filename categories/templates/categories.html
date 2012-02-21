@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+
+{% block h2 %}Categorias{% endblock %}
+
+{% block content %}
+    {% for category in categories %}
+        <article class="item editableItem">
+	        <a href="/categoria/editar/{{ category.id }}" class="simpleLink"><h3 class="titleItem">{{ category.name }}</h3></a>
+	        <span class="editButton hidden">Editar</span>
+	        <a href="/categoria/deletar/{{ category.id }}" class="deleteButton itemRightButton">Deletar</a>
+	        <p class="descriptionItem">
+		        {{ category.code }}
+	        </p>
+        </article>    
+    {% endfor %}
+{% endblock %}
+
+    <article class="item editableItem">
+	    <a href="#" class="simpleLink"><h3 class="titleItem">Carlos Anibal Vieira Araújo Junior</h3></a>
+	    <span class="editButton hidden">Editar</span>
+	    <a href="#" class="deleteButton itemRightButton">Deletar</a>
+	    <p class="descriptionItem">
+		    235  |  (34) 3456-0987  |  Av. Cesário Alvim, 3521  |  Brasil
+	    </p>
+    </article>

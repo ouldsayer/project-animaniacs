@@ -1,0 +1,47 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset=utf-8> 
+	<title>Artanit</title>
+	<link href="{{ MEDIA_URL }}main.css" media="screen" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<header id="topBar" class="bodyMargin">
+		<nav id="groups">
+			<a href="{% url mitsuisushibar.items.views.index %}" class="simpleLink">Produtos</a>
+			<span class="leftRight3px">|</span>
+			<a href="#" class="simpleLink">Exercícios</a>
+			<span class="leftRight3px">|</span>
+			<a href="/usuarios" class="simpleLink">Usuários</a>
+			<span class="leftRight3px">|</span>
+			<a href="#" class="simpleLink">Luigi Tricoli</a>
+		</nav>
+	</header>
+	<section id="groupContent" class="bodyLeftMargin">
+		<nav id="areas">
+			<ul>
+				<li class="topBottom15px"><a href="/itens" class="simpleLink">Produtos</a></li>
+				<li class="topBottom15px"><a href="#" class="simpleLink">Entrada de Produtos</a></li>
+				<li class="topBottom15px"><a href="#" class="simpleLink">Saída de Produtos</a></li>
+				<li class="topBottom15px"><a href="/categorias" class="simpleLink">Categorias</a></li>
+				<li class="topBottom1px"><span class="selected"><a href="/medidas">Unidade de medidas</a></span></li>
+			</ul>
+		</nav>
+		<div id="areaDetail">
+			<div id="areaToolBar" class="bodyRighttMargin">
+				<h2 class="title">{% block h2 %}Home{% endblock %}</h2>
+				<form action="#" method="get" id="formFilterAreaToolBar">
+					<input type="text" class="defaultInput minWidth300px width50percent" value="Luigi Oliveira Tricoli" />
+					<button type="submit" class="searchButton">Filtrar</button>
+				</form>
+				<div id="buttonsAreaToolBar">
+					<a href="#" class="newButton">Novo</a>
+				</div>
+			</div>
+			<div id="areaContent"  class="bodyRighttMargin">
+                {% block content %}{% endblock %}			
+			</div>
+		</div>
+	</section>
+</body>
+</html>
