@@ -1,0 +1,15 @@
+{% extends "main.html" %}
+
+{% block title %}Usuario{% endblock %}
+
+{% block content %}
+    <article class="item itemInformation">
+	    <span class="simpleLink"><h3 class="titleItem">{{ user.username }}</h3></span>
+        <p class="descriptionItem">
+            {{ user.email }}
+        </p>
+    </article>
+	<form action="/usuario/atualizar/{{ editableUser.id }}/" method="POST">
+        {% include "user_form.html" %}
+    </form>
+{% endblock %}

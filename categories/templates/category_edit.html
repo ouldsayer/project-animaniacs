@@ -1,0 +1,16 @@
+{% extends "main.html" %}
+
+{% block title %}Categorias{% endblock %}
+
+{% block content %}
+    <article class="item itemInformation">
+	    <span class="simpleLink"><h3 class="titleItem">Carlos Anibal Vieira Araújo Junior</h3></span>
+        <a href="/categoria/deletar/{{ category.id }}" class="deleteButton itemRightButton">Deletar</a>
+        <p class="descriptionItem">
+	        {{ category.code }}
+        </p>
+    </article>
+    <form action="/categoria/atualizar/{{ category.id }}/" method="POST">
+        {% include "category_form.html" %}
+    </form>
+{% endblock %}

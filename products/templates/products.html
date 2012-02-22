@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+
+{% block title %}Produtos{% endblock %}
+
+{% block buttonsAreaToolBar %}
+    <a href="/produto/novo/" class="newButton">Novo</a>
+{% endblock %}
+
+{% block content %}
+    {% for product in products %}
+        <article class="item editableItem">
+	        <a href="/produto/editar/{{ product.id }}" class="simpleLink"><h3 class="titleItem">{{ product.name }}</h3></a>
+	        <span class="editButton hidden">Editar</span>
+	        <a href="/produto/deletar/{{ product.id }}" class="deleteButton itemRightButton">Deletar</a>
+	        <p class="descriptionItem">
+		        {{ product.code }}  |  {{ product.category }}  |  R$ {{ product.price }}  |  {{ product.measure }}  |  Estoque {{ product.current_stock }}
+	        </p>
+        </article>    
+    {% endfor %}
+{% endblock %}

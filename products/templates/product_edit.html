@@ -1,0 +1,44 @@
+{% extends "main.html" %}
+
+{% block title %}Produtos{% endblock %}
+
+{% block content %}
+    <article class="item itemInformation">
+        <span><h3 class="titleItem">{{ product.name }}</h3></span>
+        <span class="editButton hidden">Editar</span>
+        <a href="/produto/deletar/{{ product.id }}" class="deleteButton itemRightButton">Deletar</a>
+        <p class="descriptionItem">
+	        {{ product.code }}  |  {{ product.category }}  |  R$ {{ product.price }}  |  {{ product.measure }}  |  Estoque {{ product.current_stock }}
+        </p>
+    </article>    
+    <form action="/produto/atualizar/{{ product.id }}/" method="POST">
+        {% include "product_form.html" %}
+    </form>
+        <div class="listField">
+	        <h5 class="listFieldLable">Items</h5>
+	        <ul>
+	            {% for item in product.items %}
+		            <li>
+			            <a href="/produto/{{ product.id }}/item/deletar/{{ item.id }}" class="removeLine"><img src="{{ MEDIA_URL }}circular_remove.png" alt="adicionar nova linha" /></a>
+			            <span>{{ item.quantity }}</span>
+			            <span>{{ item.item.name }}</span>
+		            </li>
+		        {% endfor %}														
+                <form action="/produto/{{ product.id }}/item/salvar/" method="POST">
+                    {% csrf_token %}   		        
+		            <li>
+			                <input type="hidden" name="main_product" value="{{ product.id }}" />
+			                <input type="text" class="defaultInput" value="" name="quantity" />
+		                    <select name="item" class="defaultInput">
+	                            {% for select_product in products %}
+	                                <option value="{{ select_product.id }}" >{{ select_product.name }}</option>
+	                            {% endfor %}
+	                        </select>
+		            </li>
+		            <li class="finalLine">
+			            <button type="submit" style="border: none; background: none; cursor: pointer;" ><img src="{{ MEDIA_URL }}circular_add.png" alt="adicionar nova linha" /></button>
+		            </li>
+		        </form>				
+	        </ul>
+        </div>
+{% endblock %}

@@ -1,44 +1,40 @@
-{% extends "main.html" %}
-
-{% block title %}Usuario{% endblock %}
-
-{% block content %}
-    <article class="item itemInformation">
-	    <span class="simpleLink"><h3 class="titleItem">Carlos Anibal Vieira Araújo Junior</h3></span>
-        <p class="descriptionItem">
-	        {{ user.username }}
-        </p>
-    </article>
-	<form action="/usuario/salvar/{{ user.id }}/" method="POST">
-	    {% csrf_token %}
-		<div id="itemToolBar">
-			<nav id="itemSubareas">
-				<span class="selected">Dados</span>
-			</nav>
-			<div id="buttonsItemToolBar">
-				<button type="submit" class="newButton">Salvar</button>
-			</div>				
-		</div>
-        {% if form.errors %}
-        <div id="formError">
-	        <h4>Foram encontrados os seguintes erros:</h4>
-	        <ul>
-	        {% for field in form %}
-	            {% if field.errors %}
-    	            <li>{{ field.label }}: {{ field.errors|striptags }}</li>
-    	        {% endif %}
-	        {% endfor %}
-	        </ul>
-        </div>
-        {% endif %}    			
-		<input name="id" type="hidden" value="{{ user.id }}" />
-		<div class="field">				
-			<label>Login:</label>
-			<input name="username" type="text" class="defaultInput minWidth300px" value="{{ user.username }}" />
-		</div>				
-		<div class="field">
-			<label>Password:</label>
-			<input name="password" type="text" class="defaultInput minWidth300px" value="{{ password }}" />
-		</div>
-	</form>    
-{% endblock %} 
+    {% csrf_token %}
+    <div id="itemToolBar">
+	    <nav id="itemSubareas">
+		    <span class="selected">Dados</span>
+	    </nav>
+	    <div id="buttonsItemToolBar">
+		    <button type="submit" class="newButton">Salvar</button>
+	    </div>				
+    </div>
+    {% if form.errors %}
+    <div id="formError">
+        <h4>Foram encontrados os seguintes erros:</h4>
+        <ul>
+        {% for field in form %}
+            {% if field.errors %}
+                <li>{{ field.label }}: {{ field.errors|striptags }}</li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    {% if mostrar %} <div id="formError"><h4>Foram encontrados os seguintes erros:</h4><ul> {{ mostrar }} </ul></div> {% endif %}    			
+    <input name="id" type="hidden" value="{{ editableUser.id }}" />
+    <div class="field">				
+	    <label>Login:</label>
+	    <input name="username" type="text" class="defaultInput minWidth300px" value="{{ editableUser.username }}" />
+    </div>				
+    <div class="field">
+	    <label>Password:</label>
+	    <input name="password" type="password" class="defaultInput minWidth300px" value="{{ password }}" />
+    </div>
+    <div class="field">
+	    <label>Confirme Password:</label>
+	    <input name="passwordConfirm" type="password" class="defaultInput minWidth300px" value="{{ passwordConfirm }}" />
+	    
+    </div>
+    <div class="field">
+	    <label>E-mail:</label>
+	    <input name="email" type="text" class="defaultInput minWidth300px" value="{{ editableUser.email }}" />
+    </div>    

@@ -1,6 +1,10 @@
 {% extends "main.html" %}
 
-{% block h2 %}Categorias{% endblock %}
+{% block title %}Categorias{% endblock %}
+
+{% block buttonsAreaToolBar %}
+    <a href="/categoria/nova" class="newButton">Novo</a>
+{% endblock %}
 
 {% block content %}
     {% for category in categories %}

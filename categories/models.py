@@ -4,8 +4,8 @@ from django.db import models
 from django.forms import ModelForm
 
 class Category(models.Model):
-    name = models.CharField("Nome", max_length=200, blank=False, null=False)
-    code = models.IntegerField("Código", blank=False, null=False)
+    name = models.CharField("Nome", max_length=200, blank=False, null=False, unique=True)
+    code = models.IntegerField("Código", blank=False, null=False, unique=True)
 
     def __unicode__(self):
         return self.name

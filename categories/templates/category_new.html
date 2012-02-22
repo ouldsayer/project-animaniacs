@@ -1,0 +1,11 @@
+{% extends "main.html" %}
+
+{% block title %}Categorias{% endblock %}
+
+{% block content %}
+    <article class="item itemInformation">
+    </article>
+    <form action="/categoria/salvar/" method="POST">
+        {% include "category_form.html" %}
+    </form>
+{% endblock %}

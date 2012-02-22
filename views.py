@@ -2,7 +2,7 @@
 '''
 Created on 20/02/2012
 
-@author: mbstecnologia
+@author: carlosjr
 '''
 
 from django.shortcuts import render_to_response, redirect
@@ -11,12 +11,9 @@ from django.contrib.auth.models import User, check_password
 from django.contrib.auth import authenticate, login as auth_login, logout
 from django.contrib.auth.decorators import login_required
 
-
-
-
-@login_required
-def main(request):
-    return render_to_response('main.html', locals(), context_instance=RequestContext(request))
+#@login_required
+#def main(request):
+#    return render_to_response('main.html', locals(), context_instance=RequestContext(request))
 
 def index(request):
     return render_to_response('login.html', locals(), context_instance=RequestContext(request))
@@ -28,7 +25,6 @@ def login(request):
     if user is not None:
         if user.is_active:
             auth_login(request, user)
-            print "Você forneceu um username e senha corretos!"
             return redirect('/categorias')
         else:
             # Retorna uma mensagem de erro de 'conta desabilitada' .
@@ -39,7 +35,5 @@ def login(request):
         
 @login_required
 def logout_view(request):
-    # Redirecione para uma página de sucesso.
-    logout(request)    
- 
+    logout(request)
     return render_to_response('login.html', locals(), context_instance=RequestContext(request))

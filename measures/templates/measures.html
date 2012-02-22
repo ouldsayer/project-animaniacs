@@ -1,14 +1,14 @@
 {% extends "main.html" %}
 
-{% block h2 %}Unidades de Medida{% endblock %}
+{% block title %}Unidades de Medidas{% endblock %}
 
 {% block content %}
     {% for measure in measures %}
         <article class="item editableItem">
-	        <h3 class="titleItem">{{ measure.unit }}</h3>	       
+	        <h3 class="titleItem">{{ measure.unit }}</h3>
 	        <p class="descriptionItem">
-		        {{ measure.name }}
-		    </p>
+		        {{ measure.description }}
+	        </p>
         </article>    
     {% endfor %}
 {% endblock %}

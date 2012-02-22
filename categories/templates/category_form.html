@@ -1,162 +1,28 @@
-{% extends "main.html" %}
-
-{% block title %}Categorias{% endblock %}
-
-{% block content %}
-    <article class="item itemInformation">
-	    <span class="simpleLink"><h3 class="titleItem">Carlos Anibal Vieira Araújo Junior</h3></span>
-        <a href="/categoria/deletar/{{ category.id }}" class="deleteButton itemRightButton">Deletar</a>
-        <p class="descriptionItem">
-	        {{ category.code }}
-        </p>
-    </article>
-	<form action="/categoria/salvar/{{ category.id }}/" method="POST">
-	    {% csrf_token %}
-		<div id="itemToolBar">
-			<nav id="itemSubareas">
-				<span class="selected">Dados</span>
-			</nav>
-			<div id="buttonsItemToolBar">
-				<button type="submit" class="newButton">Salvar</button>
-			</div>				
-		</div>
-        {% if form.errors %}
-        <div id="formError">
-	        <h4>Foram encontrados os seguintes erros:</h4>
-	        <ul>
-	        {% for field in form %}
-	            {% if field.errors %}
-    	            <li>{{ field.label }}: {{ field.errors|striptags }}</li>
-    	        {% endif %}
-	        {% endfor %}
-	        </ul>
-        </div>
-        {% endif %}    			
-		<input name="id" type="hidden" value="{{ category.id }}" />
-		<div class="field">
-			<label>Código:</label>			<input name="code" type="text" class="defaultInput" value="{{ category.code }}" />
-		</div>
-		<div class="field">				
-			<label>Nome:</label>			<input name="name" type="text" class="defaultInput minWidth300px" value="{{ category.name }}" />
-		</div>				
-	</form>    
-{% endblock %}    
-    
-                <article class="item itemInformation">
-					<a href="#" class="simpleLink"><h3 class="titleItem">Carlos Anibal Vieira Araújo Junior</h3></a>
-					<a href="#" class="deleteButton itemRightButton">Deletar</a>
-					<p class="descriptionItem">
-						235  |  (34) 3456-0987  |  Av. Cesário Alvim, 3521  |  Brasil
-					</p>
-				</article>
-				<div id="itemToolBar">
-					<nav id="itemSubareas">
-						<span class="selected">Dados</span>
-						<a href="#" class="simpleLink">Créditos</a>
-					</nav>
-					<div id="buttonsItemToolBar">
-						<a href="#" class="newButton">Novo</a>
-					</div>				
-				</div>
-				<form action="#" method="POST">
-					<div class="field">
-						<label>Nome:</label>
-						<input type="text" class="defaultInput minWidth300px" value="Luigi Oliveira Tricoli" />
-					</div>
-					<div class="field">				
-						<label>E-mail:</label>
-						<input type="text" class="defaultInput minWidth300px" value="Luigi Oliveira Tricoli" />
-					</div>
-					<div class="field">					
-						<label>CPF:</label>
-						<input type="text" class="defaultInput" value="Luigi Oliveira Tricoli" />
-					</div>
-					<div class="field">					
-						<label>Outros:</label>
-						<input type="text" class="defaultInput" value="Luigi Oliveira Tricoli" />
-					</div>
-					<div class="field">					
-						<label>Outros:</label>
-						<input type="text" class="defaultInput" value="Luigi Oliveira Tricoli" />
-					</div>
-					<div class="field">					
-						<label>Outros:</label>
-						<input type="text" class="defaultInput" value="Luigi Oliveira Tricoli" />
-					</div>
-					<div class="listField">
-						<h5 class="listFieldLable">Telefones</h5>
-						<ul>
-							<li>
-								<a href="#" class="removeLine"><img src="circular_remove.png" alt="adicionar nova linha" /></a>
-								<span>Av. Suiça"</span>
-								<span>164</span>
-								<span>APTO 103</span>
-								<span>Tibery</span>
-								<span>Uberlândia</span>
-							</li>							
-							<li>
-								<a href="#" class="removeLine"><img src="circular_remove.png" alt="adicionar nova linha" /></a>
-								<span>Av. Suiça"</span>
-								<span>164</span>
-								<span>APTO 103</span>
-								<span>Tibery</span>
-								<span>Uberlândia</span>
-							</li>							
-							<li>
-								<a href="#" class="removeLine"><img src="circular_remove.png" alt="adicionar nova linha" /></a>
-								<span>Av. Suiça"</span>
-								<span>164</span>
-								<span>APTO 103</span>
-								<span>Tibery</span>
-								<span>Uberlândia</span>
-							</li>														
-							<li>
-								<a href="#" class="removeLine"><img src="circular_remove.png" alt="adicionar nova linha" /></a>
-								<input type="text" class="defaultInput" value="Av. Suiça" />
-								<input type="text" class="defaultInput" value="164" />
-								<input type="text" class="defaultInput" value="APTO 103" />
-								<input type="text" class="defaultInput" value="Tibery" />
-								<input type="text" class="defaultInput" value="Uberlândia" />
-							</li>
-							<li class="finalLine">
-								<a href="#"><img src="circular_add.png" alt="adicionar nova linha" /></a>
-							</li>							
-						</ul>
-					</div>					
-					<div class="listField">
-						<h5 class="listFieldLable">Endereços</h5>
-						<ul>
-							<li>
-								<span>Av. Suiça"</span>
-								<span>164</span>
-								<span>APTO 103</span>
-								<span>Tibery</span>
-								<span>Uberlândia</span>
-							</li>							
-							<li>
-								<span>Av. Suiça"</span>
-								<span>164</span>
-								<span>APTO 103</span>
-								<span>Tibery</span>
-								<span>Uberlândia</span>
-							</li>							
-							<li>
-								<span>Av. Suiça"</span>
-								<span>164</span>
-								<span>APTO 103</span>
-								<span>Tibery</span>
-								<span>Uberlândia</span>
-							</li>														
-							<li>
-								<input type="text" class="defaultInput" value="Av. Suiça" />
-								<input type="text" class="defaultInput" value="164" />
-								<input type="text" class="defaultInput" value="APTO 103" />
-								<input type="text" class="defaultInput" value="Tibery" />
-								<input type="text" class="defaultInput" value="Uberlândia" />
-							</li>
-							<li class="finalLine">
-								<a href="#" ><img src="circular_add.png" alt="adicionar nova linha" /></a>
-							</li>								
-						</ul>						
-					</div>					
-				</form>
+{% csrf_token %}
+<div id="itemToolBar">
+	<nav id="itemSubareas">
+		<span class="selected">Dados</span>
+	</nav>
+	<div id="buttonsItemToolBar">
+		<button type="submit" class="newButton">Salvar</button>
+	</div>				
+</div>
+{% if form.errors %}
+<div id="formError">
+    <h4>Foram encontrados os seguintes erros:</h4>
+    <ul>
+    {% for field in form %}
+        {% if field.errors %}
+            <li>{{ field.label }}: {{ field.errors|striptags }}</li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}    			
+<input name="id" type="hidden" value="{{ category.id }}" />
+<div class="field">
+	<label>Código:</label>	<input name="code" type="text" class="defaultInput" value="{{ category.code|default_if_none:''  }}" />
+</div>
+<div class="field">				
+	<label>Nome:</label>	<input name="name" type="text" class="defaultInput minWidth300px" value="{{ category.name }}" />
+</div>

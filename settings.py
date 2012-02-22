@@ -46,6 +46,9 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
+DECIMAL_SEPARATOR = ',' 
+USE_THOUSAND_SEPARATOR = False
+
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
 MEDIA_ROOT = os.path.join(PROJECT_ROOT_PATH,'media')
@@ -121,14 +124,14 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
-    'django.contrib.admin',
+    #'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'mitsuisushibar.categories',
-    'mitsuisushibar.items',
-    'mitsuisushibar.measures',
+    'mitsuisushibar.measures',    
+    'mitsuisushibar.products',
     'mitsuisushibar.users',
-    'mitsuisushibar',
+    'mitsuisushibar',    
 )
 
 # A sample logging configuration. The only tangible logging
