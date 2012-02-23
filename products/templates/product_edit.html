@@ -2,6 +2,10 @@
 
 {% block title %}Produtos{% endblock %}
 
+{% block buttonsAreaToolBar %}
+    <a href="/produto/novo/" class="newButton">Novo</a>
+{% endblock %}
+
 {% block content %}
     <article class="item itemInformation">
         <span><h3 class="titleItem">{{ product.name }}</h3></span>

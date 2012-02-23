@@ -20,6 +20,8 @@ urlpatterns = patterns('',
     (r'^media/(.*)$', 'django.views.static.serve',
         {'document_root': settings.MEDIA_ROOT}),
         
+    url(r'^$', 'mitsuisushibar.products.views.index'),        
+        
     (r'^accounts/login/$', 'mitsuisushibar.views.index'),
     (r'^login/$', 'mitsuisushibar.views.login'),
     (r'^logout/$', 'mitsuisushibar.views.logout_view'),
