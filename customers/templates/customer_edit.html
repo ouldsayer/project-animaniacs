@@ -1,0 +1,17 @@
+{% extends "main.html" %}
+
+{% block title %}Clientes{% endblock %}
+
+{% block content %}
+    <article class="item itemInformation">
+        <span><h3 class="titleItem">{{ customer.name }}</h3></span>
+        <span class="editButton hidden">Editar</span>
+        <a href="/cliente/deletar/{{ customer.id }}" class="deleteButton itemRightButton">Deletar</a>
+        <p class="descriptionItem">
+	        {{ customer.phone }} | {{ customer.endereço }} | {{ customer.email }} | {{ customer.cpf }}
+        </p>
+    </article>    
+    <form action="/cliente/atualizar/{{ customer.id }}/" method="POST">
+        {% include "customer_form.html" %}
+    </form>
+{% endblock %}

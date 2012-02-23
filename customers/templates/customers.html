@@ -1,0 +1,21 @@
+{% extends "main.html" %}
+
+{% block title %}Clientes{% endblock %}
+
+{% block buttonsAreaToolBar %}
+    <a href="/cliente/nova" class="newButton">Novo</a>
+{% endblock %}
+
+{% block content %}
+    {% for customer in customers %}
+        <article class="item editableItem">
+	        <a href="/cliente/editar/{{ customer.id }}" class="simpleLink"><h3 class="titleItem">{{ customer.name }}</h3></a>
+	        <span class="editButton hidden">Editar</span>
+	        <a href="/cliente/deletar/{{ customer.id }}" class="deleteButton itemRightButton">Deletar</a>
+	        <p class="descriptionItem">
+		        {{ customer.phone }} | {{ customer.endereço }} | {{ customer.email }} | {{ customer.cpf }}
+	        </p>
+        </article>    
+    {% endfor %}
+{% endblock %}
+    

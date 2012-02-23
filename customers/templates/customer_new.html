@@ -1,0 +1,11 @@
+{% extends "main.html" %}
+
+{% block title %}Clientes{% endblock %}
+
+{% block content %}
+    <article class="item itemInformation">
+    </article>
+    <form action="/cliente/salvar/" method="POST">
+        {% include "customer_form.html" %}
+    </form>
+{% endblock %}

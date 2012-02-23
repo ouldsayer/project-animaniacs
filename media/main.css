@@ -310,3 +310,8 @@ body {
 	margin: 3px 20px 0 0;
 	float: left;
 }
+
+.divisor{
+	padding-bottom: 17px;
+	border-bottom: #595959 solid 2px;
+}
