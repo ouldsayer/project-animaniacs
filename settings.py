@@ -23,6 +23,17 @@ DATABASES = {
     }
 }
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.mysql', 
+#        'NAME': 'mitsuisushibar', 
+#        'USER': 'mitsuisushibar', 
+#        'PASSWORD': 'artanit@12', 
+#        'HOST': '187.45.196.219', 
+#        'PORT': '3306', 
+#    }
+#}
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
