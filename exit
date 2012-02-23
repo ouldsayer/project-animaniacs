@@ -1,0 +1,63 @@
+[33mcommit 8e0bfe4128e10c4f10de89c5509dc3c185db1149[m
+Author: Rafael Matos <rafaelfdm@gmail.com>
+Date:   Wed Feb 22 14:53:49 2012 -0200
+
+    Versao Producao - Sprint 1
+
+[1mdiff --git a/categories/models.py b/categories/models.py[m
+[1mindex 2cd62a5..0174d48 100644[m
+[1m--- a/categories/models.py[m
+[1m+++ b/categories/models.py[m
+[36m@@ -4,8 +4,8 @@[m [mfrom django.db import models[m
+ from django.forms import ModelForm[m
+ [m
+ class Category(models.Model):[m
+[31m-    name = models.CharField("Nome", max_length=200, blank=False, null=False)[m
+[31m-    code = models.IntegerField("Código", blank=False, null=False)[m
+[32m+[m[32m    name = models.CharField("Nome", max_length=200, blank=False, null=False, unique=True)[m
+[32m+[m[32m    code = models.IntegerField("Código", blank=False, null=False, unique=True)[m
+ [m
+     def __unicode__(self):[m
+         return self.name[m
+[1mdiff --git a/categories/models.pyc b/categories/models.pyc[m
+[1mindex c996a8b..a4d9795 100644[m
+Binary files a/categories/models.pyc and b/categories/models.pyc differ
+[1mdiff --git a/categories/templates/_form.html.bkp b/categories/templates/_form.html.bkp[m
+[1mnew file mode 100644[m
+[1mindex 0000000..a72aebc[m
+[1m--- /dev/null[m
+[1m+++ b/categories/templates/_form.html.bkp[m
+[36m@@ -0,0 +1,162 @@[m
+[32m+[m[32m{% extends "main.html" %}[m
+[32m+[m
+[32m+[m[32m{% block title %}Categorias{% endblock %}[m
+[32m+[m
+[32m+[m[32m{% block content %}[m
+[32m+[m[32m    <article class="item itemInformation">[m[41m[m
+[32m+[m	[32m    <span class="simpleLink"><h3 class="titleItem">Carlos Anibal Vieira Araújo Junior</h3></span>[m[41m[m
+[32m+[m[32m        <a href="/categoria/deletar/{{ category.id }}" class="deleteButton itemRightButton">Deletar</a>[m[41m[m
+[32m+[m[32m        <p class="descriptionItem">[m[41m[m
+[32m+[m	[32m        {{ category.code }}[m[41m[m
+[32m+[m[32m        </p>[m[41m[m
+[32m+[m[32m    </article>[m
+[32m+[m	[32m<form action="/categoria/salvar/{{ category.id }}/" method="POST">[m
+[32m+[m	[32m    {% csrf_token %}[m
+[32m+[m		[32m<div id="itemToolBar">[m[41m[m
+[32m+[m			[32m<nav id="itemSubareas">[m[41m[m
+[32m+[m				[32m<span class="selected">Dados</span>[m[41m[m
+[32m+[m			[32m</nav>[m[41m[m
+[32m+[m			[32m<div id="buttonsItemToolBar">[m[41m[m
+[32m+[m				[32m<button type="submit" class="newButton">Salvar</button>[m[41m[m
+[32m+[m			[32m</div>[m[41m				[m
+[32m+[m		[32m</div>[m
+[32m+[m[32m        {% if form.errors %}[m
+[32m+[m[32m        <div id="formError">[m
+[32m+[m	[32m        <h4>Foram encontrados os seguintes erros:</h4>[m
+[32m+[m	[32m        <ul>[m
+[32m+[m	[32m        {% for field in form %}[m
+[32m+[m	[32m            {% if field.errors %}[m
+[32m+[m[41m    [m	[32m            <li>{{ field.label }}: {{ field.errors|striptags }}</li>[m
+[32m+[m[41m    [m	[32m        {% endif %}[m
+[32m+[m	[32m        {% endfor %}[m
+[32m+[m	[32m        </ul>[m
+[32m+[m
