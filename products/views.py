@@ -4,13 +4,12 @@ from django.template import RequestContext
 
 from measures.models import Measure
 from categories.models import Category
-from models import Product, ProductForm, Item, ItemForm
+from models import Product, ProductForm
 
 def load():
     categories = Category.objects.all().order_by('name')
     measures = Measure.objects.all().order_by('unit')
-    products = Product.objects.all().order_by('name')
-    return categories, measures, products
+    return categories, measures
 
 @login_required
 def index(request):
@@ -20,17 +19,17 @@ def index(request):
 # path /produto/nova
 @login_required
 def new(request):
-    categories, measures, products = load()
+    categories, measures = load()
     return render_to_response('product_new.html', locals(), context_instance=RequestContext(request))
     
 # path /produto/editar/product_id
 @login_required
 def edit(request, product_id):
-    categories, measures, products = load()
+    categories, measures = load()
     product = Product.objects.get(id=product_id)
     return render_to_response('product_edit.html', locals(), context_instance=RequestContext(request))
 
-# path /categora/salvar
+# path /produto/salvar
 @login_required
 def create(request):
     if request.method == 'POST':
@@ -38,12 +37,12 @@ def create(request):
         form = ProductForm(request.POST, instance=product)
         if form.is_valid():
             form.save()
-            return redirect('/produto/editar/' + str(product.id))
+            return redirect('/productos')
         else:
-            categories, measures,products = load()
+            categories, measures = load()
             return render_to_response('product_new.html', locals(), context_instance=RequestContext(request))
             
-# path /categora/atualizar/product_id
+# path /produto/atualizar/product_id
 @login_required
 def update(request, product_id):
     if request.method == 'POST':
@@ -51,9 +50,9 @@ def update(request, product_id):
         form = ProductForm(request.POST, instance=product)
         if form.is_valid():
             form.save()
-            return redirect('/produtos')
+            return redirect('/productos')
         else:
-            categories, measures, products = load()
+            categories, measures = load()
             return render_to_response('product_edit.html', locals(), context_instance=RequestContext(request))            
 
 # path /produto/deletar/product_id
@@ -61,22 +60,4 @@ def update(request, product_id):
 def delete(request, product_id):
     product = Product.objects.get(id=product_id)
     product.delete()
-    return redirect('/produtos')
-    
-# path /produto/product_id/item/deletar/item_id
-@login_required
-def delete_item(request, product_id, item_id):
-    item = Item.objects.get(id=item_id)
-    item.delete()
-    return redirect('/produto/editar/' + product_id)
-    
-# path /produto/product_id/item/salvar
-@login_required
-def salvar_item(request, product_id):
-    if request.method == 'POST':
-        form = ItemForm(request.POST)
-#        import pdb; pdb.set_trace()
-        if form.is_valid():
-            form.save()
-        return redirect('/produto/editar/' + product_id)
-    
+    return redirect('/productos')

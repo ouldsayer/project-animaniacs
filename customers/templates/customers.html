@@ -3,7 +3,7 @@
 {% block title %}Clientes{% endblock %}
 
 {% block buttonsAreaToolBar %}
-    <a href="/cliente/nova" class="newButton">Novo</a>
+    <a href="/cliente/novo" class="newButton">Novo</a>
 {% endblock %}
 
 {% block content %}
@@ -13,7 +13,7 @@
 	        <span class="editButton hidden">Editar</span>
 	        <a href="/cliente/deletar/{{ customer.id }}" class="deleteButton itemRightButton">Deletar</a>
 	        <p class="descriptionItem">
-		        {{ customer.phone }} | {{ customer.endereço }} | {{ customer.email }} | {{ customer.cpf }}
+		        {{ customer.phone }} | {{ customer.address }} | {{ customer.email }} | {{ customer.cpf }}
 	        </p>
         </article>    
     {% endfor %}

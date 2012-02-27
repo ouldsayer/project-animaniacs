@@ -23,17 +23,6 @@ DATABASES = {
     }
 }
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.mysql', 
-#        'NAME': 'mitsuisushibar', 
-#        'USER': 'mitsuisushibar', 
-#        'PASSWORD': 'artanit@12', 
-#        'HOST': '187.45.196.219', 
-#        'PORT': '3306', 
-#    }
-#}
-
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -56,9 +45,6 @@ USE_I18N = True
 # If you set this to False, Django will not format dates, numbers and
 # calendars according to the current locale
 USE_L10N = True
-
-DECIMAL_SEPARATOR = ',' 
-USE_THOUSAND_SEPARATOR = False
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
@@ -135,13 +121,14 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
-    #'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'mitsuisushibar.categories',
     'mitsuisushibar.measures',    
     'mitsuisushibar.products',
     'mitsuisushibar.users',
+    'mitsuisushibar.customers',
     'mitsuisushibar',    
 )
 

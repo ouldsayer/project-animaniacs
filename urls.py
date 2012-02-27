@@ -17,7 +17,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     
-    url(r'^$', 'mitsuisushibar.products.views.index'),    
+    (r'^$', 'mitsuisushibar.views.index'),    
     (r'^media/(.*)$', 'django.views.static.serve',
         {'document_root': settings.MEDIA_ROOT}),
         
@@ -40,9 +40,6 @@ urlpatterns = patterns('',
     (r'^produto/salvar/$', 'mitsuisushibar.products.views.create'),
     (r'^produto/atualizar/(?P<product_id>\d+)/$', 'mitsuisushibar.products.views.update'),
     (r'^produto/deletar/(?P<product_id>\d+)/$', 'mitsuisushibar.products.views.delete'),
-    
-    (r'^produto/(?P<product_id>\d+)/item/salvar/$', 'mitsuisushibar.products.views.salvar_item'),
-    (r'^produto/(?P<product_id>\d+)/item/deletar/(?P<item_id>\d+)/$', 'mitsuisushibar.products.views.delete_item'),    
     
     (r'^usuarios/$', 'mitsuisushibar.users.views.index'),
     (r'^usuario/novo/$', 'mitsuisushibar.users.views.new'),

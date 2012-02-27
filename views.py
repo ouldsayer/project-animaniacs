@@ -27,11 +27,11 @@ def login(request):
             auth_login(request, user)
             return redirect('/categorias')
         else:
+            # Retorna uma mensagem de erro de 'conta desabilitada' .
             print "Sua conta foi desabilitada!"            
-            return render_to_response('login.html', locals(), context_instance=RequestContext(request))
     else:
+        # Retorna uma mensagem de erro 'login inválido'.
         print "Seu username e senha estavam incorretos."  
-        return render_to_response('login.html', locals(), context_instance=RequestContext(request))
         
 @login_required
 def logout_view(request):

@@ -6,6 +6,7 @@ Created on 23/02/2012
 '''
 from django.db import models
 from django.forms import ModelForm
+from django.contrib.localflavor.br.forms import BRCPFField, BRCNPJField
 
 class Customer(models.Model):
     name = models.CharField("Nome", max_length=200, blank=False, null=False, unique=False)
@@ -18,5 +19,6 @@ class Customer(models.Model):
         return self.name
 
 class CustomerForm(ModelForm):
+    cpf = BRCPFField(label=u'CPF') 
     class Meta:
         model = Customer
