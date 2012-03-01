@@ -6,6 +6,13 @@
     <a href="/cliente/novo" class="newButton">Novo</a>
 {% endblock %}
 
+{% block search %}
+<form action="/clientes/nome/" method="get" id="formFilterAreaToolBar">
+	<input name="customer_name" type="text" class="defaultInput minWidth300px width50percent" value="{{ customer_name }}" />
+	<button type="submit" class="searchButton">Filtrar</button>
+</form>
+{% endblock %}
+
 {% block content %}
     {% for customer in customers %}
         <article class="item editableItem">
