@@ -49,6 +49,7 @@ urlpatterns = patterns('',
     (r'^usuario/deletar/(?P<user_id>\d+)/$', 'mitsuisushibar.users.views.delete'),
     
     (r'^clientes/$', 'mitsuisushibar.customers.views.index'),
+    (r'^clientes/nome/$', 'mitsuisushibar.customers.views.indexSearch'),
     (r'^cliente/novo/$', 'mitsuisushibar.customers.views.new'),
     (r'^cliente/editar/(?P<customer_id>\d+)/$', 'mitsuisushibar.customers.views.edit'),
     (r'^cliente/salvar/$', 'mitsuisushibar.customers.views.create'),

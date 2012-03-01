@@ -8,6 +8,8 @@
 <body>
 	<header id="topBar" class="bodyMargin">
 		<nav id="groups">
+			<a href="{% url mitsuisushibar.customers.views.index %}" class="simpleLink">Clientes</a>
+			<span class="leftRight3px">|</span>
 			<a href="{% url mitsuisushibar.products.views.index %}" class="simpleLink">Produtos</a>
 			<span class="leftRight3px">|</span>
 			<!-- 
@@ -28,23 +30,25 @@
 				<li class="topBottom15px"><a href="#" class="simpleLink">Saída de Produtos</a></li>
 				-->
 				<li class="topBottom15px"><a href="{% url mitsuisushibar.categories.views.index %}" class="simpleLink">Categorias</a></li>
-				<li class="divisor topBottom1px"><a href="{% url mitsuisushibar.measures.views.index %}" class="simpleLink">Unidade de medidas</a></li>
+				<li class="topBottom1px"><a href="{% url mitsuisushibar.measures.views.index %}" class="simpleLink">Unidade de medidas</a></li>
 				<!-- 
     				<li class="topBottom1px"><span class="selected">Unidade de medidas</span></li>
 				-->
 				
-				<li class="topBottom15px"><a href="{% url mitsuisushibar.customers.views.index %}" class="simpleLink">Clientes</a></li>
+				
 			</ul>
 		</nav>
 		<div id="areaDetail">
 			<div id="areaToolBar" class="bodyRighttMargin">
 				<h2 class="title">{% block title %}Home{% endblock %}</h2>
+				{% block search %}
 				<!-- 
 				<form action="#" method="get" id="formFilterAreaToolBar">
 					<input type="text" class="defaultInput minWidth300px width50percent" value="Luigi Oliveira Tricoli" />
 					<button type="submit" class="searchButton">Filtrar</button>
 				</form>
 				-->
+				{% endblock %}
 				<div id="buttonsAreaToolBar">
     				{% block buttonsAreaToolBar %}{% endblock %}
 				</div>
