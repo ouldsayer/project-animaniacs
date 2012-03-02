@@ -6,6 +6,11 @@
     <a href="/categoria/nova" class="newButton">Novo</a>
 {% endblock %}
 
+{% block search %}
+	{% include '_search.html' with action='/categorias/' %}
+{% endblock %}
+
+
 {% block content %}
     {% for category in categories %}
         <article class="item editableItem">

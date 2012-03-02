@@ -2,8 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 
-from measures.models import Measure
-from categories.models import Category
+from mitsuisushibar.measures.models import Measure
+from mitsuisushibar.categories.models import Category
 from models import Product, ProductForm
 
 def load():
@@ -13,7 +13,8 @@ def load():
 
 @login_required
 def index(request):
-    products = Product.objects.all().order_by('name')
+    keywords = request.GET['keywords'] if request.GET.has_key('keywords') else u''
+    products = Product.split_and_search(keywords)
     return render_to_response('products.html', locals(), context_instance=RequestContext(request))
 
 # path /produto/nova

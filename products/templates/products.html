@@ -6,6 +6,11 @@
     <a href="/produto/novo/" class="newButton">Novo</a>
 {% endblock %}
 
+{% block search %}
+	{% include '_search.html' with action='/produtos/' %}
+{% endblock %}
+
+
 {% block content %}
     {% for product in products %}
         <article class="item editableItem">

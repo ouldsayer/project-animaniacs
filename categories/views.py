@@ -7,7 +7,8 @@ from models import Category, CategoryForm
 # path /categorias
 @login_required
 def index(request):
-    categories = Category.objects.all().order_by('name')
+    keywords = request.GET['keywords'] if request.GET.has_key('keywords') else u''
+    categories = Category.split_and_search(keywords)
     return render_to_response('categories.html', locals(), context_instance=RequestContext(request))
 
 # path /categoria/nova
