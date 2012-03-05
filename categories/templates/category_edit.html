@@ -4,7 +4,8 @@
 
 {% block content %}
     <article class="item itemInformation">
-	    <span class="simpleLink"><h3 class="titleItem">Carlos Anibal Vieira Araújo Junior</h3></span>
+	    <span><h3 class="titleItem">{{ category.name }}</h3></span>
+        <span class="editButton hidden">Editar</span>
         <a href="/categoria/deletar/{{ category.id }}" class="deleteButton itemRightButton">Deletar</a>
         <p class="descriptionItem">
 	        {{ category.code }}
