@@ -1,40 +1,31 @@
 {% csrf_token %}
-<div id="itemToolBar">
-	<nav id="itemSubareas">
-		<span class="selected">Dados</span>
-	</nav>
-	<div id="buttonsItemToolBar">
-		<button type="submit" class="newButton">Salvar</button>
-	</div>				
-</div>
-{% if form.errors %}
-<div id="formError">
-    <h4>Foram encontrados os seguintes erros:</h4>
-    <ul>
-    {% for field in form %}
-        {% if field.errors %}
-            <li>{{ field.label }}: {{ field.errors|striptags }}</li>
-        {% endif %}
-    {% endfor %}
-    </ul>
-</div>
-{% endif %}    			
-<input name="id" type="hidden" value="{{ customer.id }}" />
-<div class="field">
-	<label>Telefone:</label>	<input name="code" type="text" class="defaultInput" value="{{ customer.code }}" />
-</div>
-<div class="field">				
-	<label>Nome:</label>	<input name="name" type="text" class="defaultInput minWidth300px" value="{{ customer.name }}" />
-</div>
-<div class="field">				
-	<label>Endereço:</label>
-	<input name="name" type="text" class="defaultInput minWidth300px" value="{{ customer.address }}" />
-</div>
-<div class="field">				
-	<label>Email:</label>
-	<input name="name" type="text" class="defaultInput minWidth300px" value="{{ customer.email }}" />
-</div>
-<div class="field">				
-	<label>CPF:</label>
-	<input name="name" type="text" class="defaultInput minWidth300px" value="{{ customer.cpf }}" />
-</div>
+		<div id="itemToolBar">
+			<nav id="itemSubareas">
+				<span class="selected">Dados</span>
+			</nav>
+			<div id="buttonsItemToolBar">
+				<button type="submit" class="newButton">Salvar</button>
+			</div>				
+		</div>
+        {% if form.errors %}
+        <div id="formError">
+	        <h4>Foram encontrados os seguintes erros:</h4>
+	        <ul>
+	        {% for field in form %}
+	            {% if field.errors %}
+    	            <li>{{ field.label }}: {{ field.errors|striptags }}</li>
+    	        {% endif %}
+	        {% endfor %}
+	        </ul>
+        </div>
+        {% endif %}    			
+		<input name="id" type="hidden" value="{{ category.id }}" />
+		<div class="field">
+			<label>Código:</label>
+			<input name="code" type="text" class="defaultInput" value="{{ category.code }}" />
+		</div>
+		<div class="field">				
+			<label>Nome:</label>
+			<input name="name" type="text" class="defaultInput minWidth300px" value="{{ category.name }}" />
+		</div>				
+	</form>    
