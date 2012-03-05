@@ -38,7 +38,7 @@ def create(request):
         form = ProductForm(request.POST, instance=product)
         if form.is_valid():
             form.save()
-            return redirect('/productos')
+            return redirect('/produtos')
         else:
             categories, measures = load()
             return render_to_response('product_new.html', locals(), context_instance=RequestContext(request))
@@ -51,7 +51,7 @@ def update(request, product_id):
         form = ProductForm(request.POST, instance=product)
         if form.is_valid():
             form.save()
-            return redirect('/productos')
+            return redirect('/produtos')
         else:
             categories, measures = load()
             return render_to_response('product_edit.html', locals(), context_instance=RequestContext(request))            
@@ -61,4 +61,4 @@ def update(request, product_id):
 def delete(request, product_id):
     product = Product.objects.get(id=product_id)
     product.delete()
-    return redirect('/productos')
+    return redirect('/produtos')
