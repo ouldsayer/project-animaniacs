@@ -22,35 +22,21 @@
    			
 <input name="id" type="hidden" value="{{ product.id }}" />
 <div class="field">
-	<label>Código:</label>	<input name="code" type="text" class="defaultInput" value="{{ product.code|default_if_none:''  }}" />
+	<label>Código:</label>
+	<input name="code" type="text" class="defaultInput" value="{{ product.code|default_if_none:''  }}" />
 </div>
 <div class="field">				
-	<label>Nome:</label>	<input name="name" type="text" class="defaultInput minWidth300px" value="{{ product.name }}" />
+	<label>Nome:</label>
+	<input name="name" type="text" class="defaultInput minWidth300px" value="{{ product.name }}" />
 </div>
 <div class="field">				
 	<label>Categoria:</label>
 	
 	<select name="category" class="defaultInput">
 		{% for category in categories %}
-<<<<<<< HEAD
 			<option value="{{ category.id }}" {% ifequal category.id product.category_id %}selected="selected"{% endifequal %}>{{ category.name }}</option>
 		{% endfor %}
 	</select>
-	
-=======
-			<option value="{{ category.id }}">{{ category.name }}</option>
-		{% endfor %}
-	</select>
-	
-	
-<!--  
-	<select name="category_id" class="defaultInput">
-	    {% for category in categories %}
-	        <option value="{{ category.id }}" {% ifequal category.id product.category_id %}selected="selected"{% endifequal %} >{{ category.name }}</option>
-	    {% endfor %}
-	</select>
- -->
->>>>>>> 090b455fbe25fd09d5f0327c78396f29878266d8
 </div>
 <div class="field">				
 	<label>Unidade de Medida:</label>
@@ -61,17 +47,22 @@
 	</select>
 </div>
 <div class="field">				
-	<label>Preço:</label>    <span>R$ <span><input name="price" type="text" class="defaultInput" value="{{ product.price }}" />
+	<label>Preço:</label>
+    <span>R$ <span><input name="price" type="text" class="defaultInput" value="{{ product.price }}" />
 </div>
 <div class="field">				
-	<label>Contribuição:</label>	<input name="tax" type="text" class="defaultInput" value="{{ product.tax }}" />
+	<label>Contribuição:</label>
+	<input name="tax" type="text" class="defaultInput" value="{{ product.tax }}" />
 </div>
 <div class="field">				
-	<label>Tem estoque:</label>	<input name="has_stock" type="checkbox" class="defaultInput" value="{{ product.has_stock }}" />
+	<label>Tem estoque:</label>
+	<input name="has_stock" type="checkbox" class="defaultInput" value="{{ product.has_stock }}" />
 </div>
 <div class="field">				
-	<label>Estoque atual:</label>	<input name="current_stock" type="text" class="defaultInput" value="{{ product.current_stock }}" />
+	<label>Estoque atual:</label>
+	<input name="current_stock" type="text" class="defaultInput" value="{{ product.current_stock }}" />
 </div>
 <div class="field">				
-	<label>Estoque mínimo:</label>	<input name="least_stock" type="text" class="defaultInput" value="{{ product.least_stock }}" />
+	<label>Estoque mínimo:</label>
+	<input name="least_stock" type="text" class="defaultInput" value="{{ product.least_stock }}" />
 </div>
