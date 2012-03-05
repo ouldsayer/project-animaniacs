@@ -6,6 +6,10 @@
     <a href="/usuario/novo" class="newButton">Novo</a>
 {% endblock %}
 
+{% block search %}
+	{% include '_search.html' with action='/usuarios/' %}
+{% endblock %}
+
 
 {% block content %}
     {% for user in users %}

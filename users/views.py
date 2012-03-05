@@ -2,11 +2,17 @@ from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 # path /usuarios
 @login_required
 def index(request):
-    users = User.objects.all().order_by('username')
+    keywords = request.GET['keywords'] if request.GET.has_key('keywords') else u''
+    keywords.split(' ')        
+    query = Q()        
+    for keyword in keywords:
+            query = query | Q(username__icontains=keyword) | Q(email__icontains=keyword)     
+    users = User.objects.filter(query).order_by('username')
     return render_to_response('users.html', locals(), context_instance=RequestContext(request))
 
 # path /categoria/nova

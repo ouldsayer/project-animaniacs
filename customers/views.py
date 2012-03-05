@@ -7,26 +7,13 @@ from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from mitsuisushibar.customers.models import Customer, CustomerForm
-from django.db.models import Q
 
 
 # path /clientes
 @login_required
 def index(request):
-    customers = Customer.objects.all().order_by('name')
-    return render_to_response('customers.html', locals(), context_instance=RequestContext(request))
-
-
-@login_required
-def indexSearch(request):
-    keywords=request.GET['customer_name'].split(' ')
-    query = Q()
-    for keyword in keywords:
-        if keyword.isdigit():
-            query = query | Q(phone__icontains=keyword)
-        else:
-            query = query | Q(name__icontains=keyword) | Q(address__icontains=keyword)
-    customers = Customer.objects.filter(query).order_by('name')
+    keywords = request.GET['keywords'] if request.GET.has_key('keywords') else u''
+    customers = Customer.split_and_search(keywords)
     return render_to_response('customers.html', locals(), context_instance=RequestContext(request))
 
 #path /cliente/nova
