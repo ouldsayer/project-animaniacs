@@ -32,24 +32,16 @@
 <div class="field">				
 	<label>Categoria:</label>
 	
-	<select name="category_id" class="defaultInput">
+	<select name="category" class="defaultInput">
 		{% for category in categories %}
-		<option value="{{ category.id }}">{{ category.name }}</option>
+			<option value="{{ category.id }}" {% ifequal category.id product.category_id %}selected="selected"{% endifequal %}>{{ category.name }}</option>
 		{% endfor %}
 	</select>
 	
-	
-<!-- 
-	<select name="category_id" class="defaultInput">
-	    {% for category in categories %}
-	        <option value="{{ category.id }}" {% ifequal category.id product.category_id %}selected="selected"{% endifequal %} >{{ category.name }}</option>
-	    {% endfor %}
-	</select>
- -->
 </div>
 <div class="field">				
 	<label>Unidade de Medida:</label>
-	<select name="measure_id" class="defaultInput">
+	<select name="measure" class="defaultInput">
 	    {% for measure in measures %}
 	        <option value="{{ measure.id }}" {% ifequal measuere.id product.measure_id %}selected="selected"{% endifequal %} >{{ measure.unit }}</option>
 	    {% endfor %}
