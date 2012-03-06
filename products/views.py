@@ -76,7 +76,7 @@ def delete_item(request, product_id, item_id):
 def salvar_item(request, product_id):
     if request.method == 'POST':
         form = ItemForm(request.POST)
-#        import pdb; pdb.set_trace()
+
         if form.is_valid():
             form.save()
         return redirect('/produto/editar/' + product_id)
