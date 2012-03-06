@@ -52,7 +52,7 @@
 </div>
 <div class="field">				
 	<label>Contribuição:</label>
-	<input name="tax" type="text" class="defaultInput" value="{{ product.tax }}" />
+	<span>R$ <span><input name="tax" type="text" class="defaultInput" value="{{ product.tax }}" />
 </div>
 <div class="field">				
 	<label>Tem estoque:</label>
@@ -60,9 +60,9 @@
 </div>
 <div class="field">				
 	<label>Estoque atual:</label>
-	<input name="current_stock" type="text" class="defaultInput" value="{{ product.current_stock }}" />
+	<input name="current_stock" type="text" class="defaultInput" value="{{ product.current_stock|default:'' }}" />
 </div>
 <div class="field">				
 	<label>Estoque mínimo:</label>
-	<input name="least_stock" type="text" class="defaultInput" value="{{ product.least_stock }}" />
+	<input name="least_stock" type="text" class="defaultInput" value="{{ product.least_stock|default:'' }}" />
 </div>

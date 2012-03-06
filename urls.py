@@ -40,6 +40,9 @@ urlpatterns = patterns('',
     (r'^produto/salvar/$', 'mitsuisushibar.products.views.create'),
     (r'^produto/atualizar/(?P<product_id>\d+)/$', 'mitsuisushibar.products.views.update'),
     (r'^produto/deletar/(?P<product_id>\d+)/$', 'mitsuisushibar.products.views.delete'),
+
+    (r'^produto/(?P<product_id>\d+)/item/salvar/$', 'mitsuisushibar.products.views.salvar_item'),
+    (r'^produto/(?P<product_id>\d+)/item/deletar/(?P<item_id>\d+)/$', 'mitsuisushibar.products.views.delete_item'),    
     
     (r'^usuarios/$', 'mitsuisushibar.users.views.index'),
     (r'^usuario/novo/$', 'mitsuisushibar.users.views.new'),
@@ -54,5 +57,4 @@ urlpatterns = patterns('',
     (r'^cliente/salvar/$', 'mitsuisushibar.customers.views.create'),
     (r'^cliente/atualizar/(?P<customer_id>\d+)/$', 'mitsuisushibar.customers.views.update'),
     (r'^cliente/deletar/(?P<customer_id>\d+)/$', 'mitsuisushibar.customers.views.delete'),
-    
 )
