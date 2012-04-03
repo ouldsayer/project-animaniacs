@@ -1,0 +1,40 @@
+<div id="itemToolBar">
+	<div id="buttonsItemToolBar">
+		<button type="submit" class="newButton">Adicionar</button>
+	</div>				
+</div>
+
+{% csrf_token %}
+{% if form.errors %}
+<div id="formError">
+    <h4>Foram encontrados os seguintes erros:</h4>
+    <ul>
+    {% for field in form %}
+        {% if field.errors %}
+            <li>{{ field.label }}: {{ field.errors|striptags }}</li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+</div>
+{% endif %}    		
+<input name="id" type="hidden" value="{{ address.id }}" />	
+<input name="id" type="hidden" value="{{ customer.id }}" />
+<div class="field">
+	<label>Endere&ccedil;o:</label>
+	<input name="addressBasic" type="text" class="defaultInput" value="{{ address.addressBasic }}" /></div>
+<div class="field">
+	<label>Telefone:</label>
+	<input name="phone" type="text" class="defaultInput" value="{{ address.phone }}" />
+</div>
+<div class="field">				
+	<label>Bairro:</label>
+	<input name="district" type="text" class="defaultInput minWidth300px" value="{{ address.district }}" /></div>
+<div class="field">				
+	<label>CEP:</label>
+	<input name="postalCode" type="text" class="defaultInput minWidth300px" value="{{ address.postalCode }}" />
+</div>
+<div class="field">				
+	<label>Cidade:</label>
+	<input name="city" type="text" class="defaultInput minWidth300px" value="{{ address.city }}" />
+</div>
+<br/>			

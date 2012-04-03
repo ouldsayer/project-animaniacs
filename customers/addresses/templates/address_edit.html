@@ -1,0 +1,9 @@
+{% extends "main.html" %}
+
+{% block title %}Endere&ccedil;o de {{ address.customer }}{% endblock %}
+
+{% block content %}
+<form action="/cliente/atualizar/endereco/{{ address.id }}/" method="POST">
+        {% include "_address_form.html" %}
+</form>
+{% endblock %}

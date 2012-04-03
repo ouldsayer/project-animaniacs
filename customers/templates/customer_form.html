@@ -1,4 +1,3 @@
-{% load mask %}
 {% csrf_token %}
 <div id="itemToolBar">
 	<nav id="itemSubareas">
@@ -21,24 +20,14 @@
 </div>
 {% endif %}    			
 <input name="id" type="hidden" value="{{ customer.id }}" />
-<div class="field">
-	<label>Telefone:</label>
-	<input id="phone_input" name="phone" type="hidden" value="{{ customer.phone|default:'' }}" />
-	<input id="phone_mask" type="text" class="defaultInput phone" value="{{ customer.phone|mask:'(xx) xxxx-xxxx'}}" />
-</div>
 <div class="field">				
-	<label>Nome:</label>
-	<input name="name" type="text" class="defaultInput minWidth300px" value="{{ customer.name }}" />
-</div>
-<div class="field">				
-	<label>Endereço:</label>
-	<input name="address" type="text" class="defaultInput minWidth300px" value="{{ customer.address }}" />
+	<label>Nome:</label>	<input name="name" type="text" class="defaultInput minWidth300px" value="{{ customer.name }}" />
 </div>
 <div class="field">				
 	<label>Email:</label>
-	<input name="email" type="text" class="defaultInput minWidth300px" value="{{ customer.email|default:'' }}" />
+	<input name="email" type="text" class="defaultInput minWidth300px" value="{{ customer.email }}" />
 </div>
 <div class="field">				
 	<label>CPF:</label>
-	<input name="cpf" type="text" class="defaultInput minWidth300px cpf" value="{{ customer.cpf|default:'' }}" />
+	<input name="cpf" type="text" class="defaultInput minWidth300px" value="{{ customer.cpf }}" />
 </div>

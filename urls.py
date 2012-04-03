@@ -3,8 +3,8 @@ from django.conf.urls.defaults import patterns, include, url
 from django.conf import settings
 
 # Uncomment the next two lines to enable the admin:
-#from django.contrib import admin
-#admin.autodiscover()
+from django.contrib import admin
+admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
@@ -15,7 +15,7 @@ urlpatterns = patterns('',
     #url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    #url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', include(admin.site.urls)),
     
     (r'^$', 'mitsuisushibar.views.index'),    
     (r'^media/(.*)$', 'django.views.static.serve',
@@ -54,5 +54,7 @@ urlpatterns = patterns('',
     (r'^cliente/salvar/$', 'mitsuisushibar.customers.views.create'),
     (r'^cliente/atualizar/(?P<customer_id>\d+)/$', 'mitsuisushibar.customers.views.update'),
     (r'^cliente/deletar/(?P<customer_id>\d+)/$', 'mitsuisushibar.customers.views.delete'),
-    
+    (r'^cliente/adicionar/endereco/(?P<customer_id>\d+)/$', 'mitsuisushibar.customers.addresses.views.addAddress'),
+    (r'^cliente/editar/endereco/(?P<address_id>\d+)/$', 'mitsuisushibar.customers.addresses.views.edit'),
+    (r'^cliente/atualizar/endereco/(?P<address_id>\d+)/$', 'mitsuisushibar.customers.addresses.views.update'),    
 )

@@ -1,4 +1,4 @@
-﻿* {
+* {
 	margin: 0;
 	padding: 0;
 	text-decoration: none;
@@ -141,6 +141,12 @@ body {
 	float: right;
 	margin: 13px 0;
 }
+
+#buttonAddressToolBar {
+	display: inline-block;
+	margin: 13px 0;
+}
+
 
 .searchButton{
 	background: url(searchButton.png) -2px -3px;

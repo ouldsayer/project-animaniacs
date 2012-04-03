@@ -7,6 +7,7 @@ from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from mitsuisushibar.customers.models import Customer, CustomerForm
+from mitsuisushibar.customers.addresses.models import Address
 
 
 # path /clientes
@@ -25,6 +26,7 @@ def new(request):
 @login_required
 def edit(request, customer_id):
     customer = Customer.objects.get(id=customer_id)
+    addresses = Address.objects.filter(customer=customer);
     return render_to_response('customer_edit.html', locals(), context_instance=RequestContext(request))
 
 # path /cliente/salvar

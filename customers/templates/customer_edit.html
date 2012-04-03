@@ -8,10 +8,34 @@
         <span class="editButton hidden">Editar</span>
         <a href="/cliente/deletar/{{ customer.id }}" class="deleteButton itemRightButton">Deletar</a>
         <p class="descriptionItem">
-	        {{ customer.phone }} | {{ customer.endereço }} | {{ customer.email }} | {{ customer.cpf }}
+	        {{ customer.email }} | {{ customer.cpf }}
         </p>
-    </article>    
+    </article>
+        
     <form action="/cliente/atualizar/{{ customer.id }}/" method="POST">
         {% include "customer_form.html" %}
+    </form>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div id="itemToolBar">
+		<span style="font-size: 20px; font-weight: bold;" class="selected">Endere&ccedil;os</span>
+				
+	</div>
+	      <article class="item editableItem">
+		    {% for address in addresses %}
+	 	        <a href="/cliente/editar/endereco/{{ address.id }}" 
+	 	        	class="simpleLink"><h3 class="titleItem">Endere&ccedil;o {{ address.id }}</h3></a>
+		        <span class="editButton hidden">Editar</span>
+		        <a href="/cliente/endereco/deletar/{{ address.id }}" class="deleteButton itemRightButton">Deletar</a>
+		        <p class="descriptionItem">
+		        {{ address.addressBasic }} | {{ address.district }} | {{ address.postalCode }} | {{ address.phone }}
+			 {% endfor %}
+		  </p>
+		  </article>
+    <br/>
+    <form action="/cliente/adicionar/endereco/{{ customer.id }}/" method="POST">
+        {% include "_address_form.html" %}
     </form>
 {% endblock %}
