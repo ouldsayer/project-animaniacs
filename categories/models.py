@@ -12,19 +12,22 @@ class Category(models.Model):
         return self.name
     
     @classmethod
-    def split_and_search(cls, keywords):
-        return cls.search(keywords.split(' '))
+    def split_and_search(cls, keywords, per_page = 20, page = 1):
+        return cls.search(keywords.split(' '), per_page, page)
     
     @classmethod
-    def search(cls, keywords):
-        query = Q()        
+    def search(cls, keywords, per_page = 20, page = 1):
+        query = Q()
         for keyword in keywords:
             if keyword.isdigit():
-                query = query | Q(code__icontains=keyword)
+                query = query | Q(code__icontains=int(keyword))
             else:
                 query = query | Q(name__icontains=keyword)
         
-        return cls.objects.filter(query).order_by('name')
+        
+        offset = (page-1)*per_page
+        limit = page*per_page
+        return cls.objects.filter(query).order_by('name')[offset:limit]
 
 class CategoryForm(ModelForm):
     class Meta:
