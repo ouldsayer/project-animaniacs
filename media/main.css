@@ -37,7 +37,7 @@ body {
 
 #groups {
 	text-align: right;
-	padding: 5px 0;
+	padding: 10px 0;
 }
 
 #groups *{
@@ -180,6 +180,10 @@ body {
 	margin: 0 3px;
 }
 
+.leftRight7px{
+	margin: 0 7px;
+}
+
 .bodyMargin{
 	padding: 0 10px;
 }
@@ -215,12 +219,16 @@ body {
 }
 
 .item{
-	padding: 18px 10px;
-	border-bottom: #595959 solid 1px;
+    padding: 18px 10px;
+    border-bottom: #595959 solid 1px;
+}
+
+.mockupItem{
+	display: none;
 }
 
 .titleItem{
-	font-weight: bold;
+	/* font-weight: bold; */
 	font-size: 18px;
 	display: inline;
 }

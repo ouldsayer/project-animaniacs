@@ -1,15 +1,25 @@
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
+from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.core import serializers
 
 from models import Category, CategoryForm
+from mitsuisushibar.measures.models import Measure
 
 # path /categorias
 @login_required
 def index(request):
-    keywords = request.GET['keywords'] if request.GET.has_key('keywords') else u''
-    categories = Category.split_and_search(keywords)
     return render_to_response('categories.html', locals(), context_instance=RequestContext(request))
+
+# path /categorias/buscar
+def search(request):
+    keywords = request.GET['keywords'] if request.GET.has_key('keywords') else u''
+    per_page = int(request.GET['per_page'])
+    page = int(request.GET['page'])
+    json = serializers.serialize("json", Category.split_and_search(keywords, per_page, page))
+    import time; time.sleep(3)
+    return HttpResponse(json)
 
 # path /categoria/nova
 @login_required
